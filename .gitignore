@@ -1,5 +1,8 @@
 *.gem
 .bundle
 .sass-cache
+_sass/uswds/
 _site
 Gemfile.lock
+assets/uswds/
+node_modules

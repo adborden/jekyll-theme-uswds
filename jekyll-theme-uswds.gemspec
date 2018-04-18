@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.homepage      = "https://github.com/adborden/jekyll-theme-uswds"
   spec.license       = "CC0-1.0"
 
-  spec.files         = `git ls-files -z`.split("\x0").select { |f| f.match(%r!^(assets|_layouts|_includes|_sass|LICENSE|README)!i) }
+  spec.files         = `git ls-files -z`.split("\x0").select { |f| f.match(%r!^(assets|_layouts|_includes|_sass|LICENSE|README)!i) } | Dir['assets/uswds/**/*', '_sass/uswds/**/*']
 
   spec.add_runtime_dependency "jekyll", "~> 3.7"
 
