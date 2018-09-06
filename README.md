@@ -31,10 +31,6 @@ Or install it yourself as:
 
 TODO: Write usage instructions here. Describe your available layouts, includes, sass and/or assets.
 
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/hello. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
-
 ## Development
 
 To set up your environment to develop this theme, run `npm install`.
@@ -69,8 +65,15 @@ If you like, inspect the gem in `pkg/`
 This copies the latest assets from the USWDS npm packge.
 
 
+## Contributing
 
-## License
+See [CONTRIBUTING](CONTRIBUTING.md) for additional information.
 
-The theme is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 
+## Public domain
+
+This project is in the worldwide [public domain](LICENSE.md). As stated in [CONTRIBUTING](CONTRIBUTING.md):
+
+> This project is in the public domain within the United States, and copyright and related rights in the work worldwide are waived through the [CC0 1.0 Universal public domain dedication](https://creativecommons.org/publicdomain/zero/1.0/).
+>
+> All contributions to this project will be released under the CC0 dedication. By submitting a pull request, you are agreeing to comply with this waiver of copyright interest.
