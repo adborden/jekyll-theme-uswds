@@ -3,7 +3,7 @@
   "author": "18F",
   "license": "CC0-1.0",
   "scripts": {
-    "clean": "rm -rf assets/uswds _sass/uswds",
+    "clean": "rm -rf pkg _site assets/uswds _sass/uswds",
     "gem:build": "bundle exec rake build",
     "gem:install": "bundle exec rake install",
     "gem:release": "bundle exec rake release",
