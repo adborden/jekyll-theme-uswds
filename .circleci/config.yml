@@ -1,0 +1,58 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/ruby:2.5-node
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-deps-{{ checksum "package-lock.json" }}-{{ checksum "Gemfile" }}
+      - run: bundle install --path vender/bundle
+      - run: npm install
+      - save_cache:
+          key: v1-deps-{{ checksum "package-lock.json" }}-{{ checksum "Gemfile" }}
+          paths:
+            - node_modules
+            - vendor/bundle
+      - run: npm run uswds
+      - run: npm run gem:build
+      - persist_to_workspace:
+          root: .
+          paths:
+            - pkg
+      - store_artifacts:
+          path: pkg
+
+
+  deploy:
+    docker:
+      - image: circleci/ruby:2.5-node
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-deps-{{ checksum "package-lock.json" }}-{{ checksum "Gemfile" }}
+      - run: bundle install --path vendor/bundle
+      - run: .circleci/setup-rubygems.sh
+      - attach_workspace:
+          at: .
+      - run: npm run gem:release
+
+
+workflows:
+  version: 2
+  commit:
+    jobs:
+      - build:
+          filters:
+            tags:
+              only: /.*/
+      - deploy:
+          requires:
+            - build
+          filters:
+            tags:
+              only: /^v.*/
+            branches:
+              ignore: /.*/
